@@ -16,3 +16,9 @@ while (mult <= number) {
 }
 printf("so log base %d of %d is %.2f", base, number, answer);
 }
+
+/*The code that you suggested involved taking the argument of the log function 
+and dividing it by the base until you reach 1.
+Each time that the while loop would do a division, it would increase a counter by 1.
+That counter will be you final answer.
+*/
