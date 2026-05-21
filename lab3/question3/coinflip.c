@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 int flip(void);
 
 int main(void){
+    srand(time(NULL));
     int neg_count =0;
     int pos_count =0;
     int result =0;
@@ -21,7 +21,6 @@ printf("coin landed on tails %d\n times \n", neg_count);
 
 int flip(void){
     int ans = 0;
-    srand(time(NULL));
-    ans = (rand() % 3) -1;
+    ans = (rand() % 2);
     return ans;
 }
