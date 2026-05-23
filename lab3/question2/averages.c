@@ -26,3 +26,6 @@ int toQualityPoints(int average)
     return 0;
   }
 }
+/* asks to print quality points based off student average.
+The function main sets up to define the average and print the output of the function toQualityPoints.
+toQualityPoints is a series of if statements that corespont to a specific quality point value.*/

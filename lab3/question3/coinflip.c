@@ -24,3 +24,7 @@ int flip(void){
     ans = (rand() % 2);
     return ans;
 }
+/*Two variables are defined, one that counts heads and one that counts tails.
+reult checks to see what value that con landed on, then increments the respecive varaiable.
+flip if a function that is called upon to choose a random number between 0 and 1.
+The result of 100 flips is then printed.*/
