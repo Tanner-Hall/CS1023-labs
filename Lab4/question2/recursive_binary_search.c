@@ -26,3 +26,18 @@ int main(void) {
 
     return 0;
 }
+int recursiveBinarySearch(const int a[], int left, int right, int key) {
+    if (left > right) {
+        return -1;
+    }
+
+    int mid = (left + right) / 2;
+
+    if (key == a[mid]) {
+        return mid;       
+    } else if (key < a[mid]) {
+        return recursiveBinarySearch(a, left, mid - 1, key);  
+    } else {
+        return recursiveBinarySearch(a, mid + 1, right, key); 
+    }
+}
