@@ -20,7 +20,11 @@ int recursiveMax(const int a[], int n) {
 
     int maxOfRest = recursiveMax(a, n - 1);
 
-    return (a[n] > maxOfRest) ? a[n] : maxOfRest;
+    if (a[n] > maxOfRest) {
+        return a[n];
+}   else {
+        return maxOfRest;
+}
 }
 
 int recursiveMin(const int a[], int n) {
@@ -30,5 +34,9 @@ int recursiveMin(const int a[], int n) {
 
     int minOfRest = recursiveMin(a, n - 1);
     
-    return (a[n] < minOfRest) ? a[n] : minOfRest;
+    if (a[n] < minOfRest) {
+        return a[n];
+}   else {
+        return minOfRest;
+}
 }
