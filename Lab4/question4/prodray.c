@@ -1,28 +1,26 @@
 #include <stdio.h>
 #define big 5
-void prodofarray(const int nums[], int size);
-int n =big; 
+void prodofarray(const int nums[], int newarray[], int index, int left_product);
 int main(void){
-int num[big] ={1,2,3,4,5};
-
-prodofarray(num, n);
+int num[big] = {1, 2, 3, 4, 5};
+int newarray[big] = {0};
+prodofarray(num, newarray, 0, 1);
 }
-void prodofarray(const int nums[], int size){
-    int newarray[big] = {0};
-    if (size == 0){
-        for (size_t i = 0; i < big; i++){
-        printf("the new array is %d ",newarray[i]);}
-    printf("\n");
+void prodofarray(const int nums[], int newarray[], int index, int left_product) {
+    if (index == big) {
+        for(size_t i = 0; i < big; i++){
+            printf("%d ", newarray[i]);
         }
-    int left_running_product = 1;
-    for (int i = 0; i < size; i++) {
-        newarray[i] = left_running_product;
-        left_running_product *= nums[i];
+        printf("\n");
     }
-    int right_running_product = 1;
-    for (int i = size - 1; i >= 0; i--) {
-        newarray[i] *= right_running_product;
-        right_running_product *= nums[i];
-}
-prodofarray(nums, size-1);
+
+    int current_element = nums[index];
+
+    newarray[index] = left_product;
+
+    prodofarray(nums, newarray, index + 1, left_product * current_element);
+
+    static int right_product = 1; 
+    newarray[index] *= right_product;
+    right_product *= current_element;
 }
