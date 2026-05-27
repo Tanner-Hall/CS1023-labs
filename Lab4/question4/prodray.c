@@ -5,13 +5,13 @@ int main(void){
 int num[big] = {1, 2, 3, 4, 5};
 int newarray[big] = {0};
 prodofarray(num, newarray, 0, 1);
+for(size_t i = 0; i < big; i++){
+            printf("%d ", newarray[i]);
+}
 }
 void prodofarray(const int nums[], int newarray[], int index, int left_product) {
     if (index == big) {
-        for(size_t i = 0; i < big; i++){
-            printf("%d ", newarray[i]);
-        }
-        printf("\n");
+        return;
     }
 
     int current_element = nums[index];
