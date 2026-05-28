@@ -26,3 +26,9 @@ if (n -1 == 0){
 sort(a, n-1);
 
 }
+/* This code sorts a functio by the size of each number in the array.
+The function takes the array and the size of the array.
+It then goes over each set of elements in the array and checks if the one on the left is larger than the one on the right.
+If tha value is larger, it will swap the places of these 2 elements.
+This functon then happens again but with one less element to consider since we know the one all he way to the right is teh largest.
+This continues until the list has completely shrunk and all numbers are sorted. */
