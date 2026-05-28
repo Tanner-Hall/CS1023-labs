@@ -40,3 +40,10 @@ int recursiveMin(const int a[], int n) {
         return minOfRest;
 }
 }
+
+/* this code calls upon two recursive functions that take an array and its length minus 1 as inputs.
+Both recursive functions have the base case that if there is only one elemen in the array, then it is the largest and smallest.
+If this is the case, the function should just return taht number.
+If this is not the case, we take one number and compare it to the rest of the list and then shrink the list by one. 
+This recursion continues until he list/array is only one element.
+In that case we do the last comparison and output the max or min value.*/
