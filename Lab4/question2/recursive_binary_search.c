@@ -41,3 +41,10 @@ int recursiveBinarySearch(const int a[], int left, int right, int key) {
         return recursiveBinarySearch(a, mid + 1, right, key); 
     }
 }
+/* the main function sets up the values fo rthe recursive function.
+It also prints the results if the function was sucessful at finding the number.
+The recursive function takes the inputted array and the bounds of the array along with the number you wish to find.
+It calculates the midpoint by adding he extremas and dividing by 2.
+It then compares the mid with the key, if the key is larger, it now considers only the bottom half of the array.
+If the key is smaller than the mid, it will only consider he tp half of the array.
+This continues until the key is equal to the mid mening that we found the number. */
