@@ -24,3 +24,9 @@ void prodofarray(const int nums[], int newarray[], int index, int left_product) 
     newarray[index] *= right_product;
     right_product *= current_element;
 }
+
+/* this code takes in an initial array, an array that will be the output, an index and a left product.
+The function will takes the index as the place it is at in the array, it then moves along the array while multiplying left product by each element.
+Once this is done, every element is holding the value of every element to its left multiplied together.
+At this stage we then do the same thing but for ll values to the right of that elements and then return the new array.
+This array is then printed.*/
