@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Function prototypes
 void building(void);
 void car(void);
 void bike(void);
@@ -19,13 +18,25 @@ int main(void) {
         scanf("%d", &x);
 
         if (x == 1 || x == 2 || x == 3) {
-            // Call the function. We do 'x - 1' because menu choice 1 is array index 0.
             operations[x - 1](); 
         } else {
             printf("\n[Error] That is an incorrect value. Please enter a valid input.\n");
             printf("--------------------------------------------------\n\n");
         }
-    } while (x < 1 || x > 3); // Repeat if the input is out of bounds
+    } while (x < 1 || x > 3);
 
 }
 
+void building(void) {
+    double kwh;
+    const double ELECTRICITY_FACTOR = 0.371; 
+
+    printf("\n--- Building Carbon Footprint ---\n");
+    printf("Scope: Indirect emissions from building electricity consumption.\n");
+    printf("Enter the amount of electricity used (in kWh): ");
+    scanf("%lf", &kwh);
+
+    double footprint = kwh * ELECTRICITY_FACTOR;
+    printf("Result: Estimated Building Footprint is %.2f kg CO2e\n", footprint);
+    printf("Source: US EPA eGRID national average factor.\n");
+}
