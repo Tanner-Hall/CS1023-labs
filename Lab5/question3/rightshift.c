@@ -20,3 +20,6 @@ if (c % 8 == 0){
 putchar(' ');}
 }
 }
+/*main function takes an integer from the user. This input is printed in binary.
+A new variable is inroduced which shift the original nput to the right by 4.
+Tjis new variable is then printed in binary and decimal.*/
