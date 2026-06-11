@@ -34,3 +34,21 @@ int main(void) {
     printf("As double:      %f\n", u1.d);
     printf("As long double: %Lf\n\n", u1.x);
 
+    printf("--- Union 2 (Stored as double '%f') ---\n", temp_d);
+    printf("As float:       %f\n", u2.f);
+    printf("As double:      %f\n", u2.d);
+    printf("As long double: %Lf\n\n", u2.x);
+
+    printf("--- Union 3 (Stored as long double '%Lf') ---\n", temp_x);
+    printf("As float:       %f\n", u3.f);
+    printf("As double:      %f\n", u3.d);
+    printf("As long double: %Lf\n", u3.x);
+    printf("--------------------------------------------------\n\n");
+
+    printf("--- Size Information (in bytes) ---\n");
+    printf("sizeof(float):       %zu\n", sizeof(float));
+    printf("sizeof(double):      %zu\n", sizeof(double));
+    printf("sizeof(long double): %zu\n", sizeof(long double));
+    printf("sizeof(union floatingPoint): %zu\n", sizeof(union floatingPoint));
+
+}
