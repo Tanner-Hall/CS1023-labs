@@ -42,3 +42,11 @@ void printBinary(unsigned int value, int bits) {
         }
     }
 }
+
+/*The code starts with 2 functions being defined, the first used to calculate packd integer.
+The second function helps with printing the binary of the packed integer.
+The main starts by checking the size of an unsigned integer being 32 bits.
+A 4 element character rray is created and then filled by the users prompts.
+It then shows the 8 bit representation of each user input.
+This array is passed onto the function tha packs them by taking theor 8 bit representation and shifting 
+it right 8 times until all 32 bits of the integer is the numbers of the characters.*/
