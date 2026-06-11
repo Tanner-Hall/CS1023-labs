@@ -53,3 +53,16 @@ void car(void) {
     printf("Result: Estimated Car Footprint is %.2f kg CO2e\n", footprint);
     printf("Source: US EPA Greenhouse Gas Emissions Factors Hub.\n");
 }
+void bike(void) {
+    double km;
+    const double BICYCLE_LIFECYCLE_FACTOR = 0.021; 
+
+    printf("\n--- Bicycle Carbon Footprint ---\n");
+    printf("Scope: Lifecycle assessment (Manufacturing + Rider food calorie overhead).\n");
+    printf("Enter the total distance traveled (in Kilometers): ");
+    scanf("%lf", &km);
+
+    double footprint = km * BICYCLE_LIFECYCLE_FACTOR;
+    printf("Result: Estimated Bicycle Footprint is %.2f kg CO2e\n", footprint);
+    printf("Source: European Cyclists' Federation (ECF) Lifecycle Study.\n");
+}
