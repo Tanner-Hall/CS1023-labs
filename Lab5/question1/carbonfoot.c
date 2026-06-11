@@ -40,3 +40,16 @@ void building(void) {
     printf("Result: Estimated Building Footprint is %.2f kg CO2e\n", footprint);
     printf("Source: US EPA eGRID national average factor.\n");
 }
+void car(void) {
+    double liters;
+    const double GASOLINE_FACTOR = 2.31; 
+
+    printf("\n--- Car Carbon Footprint ---\n");
+    printf("Scope: Direct tailpipe emissions from gasoline combustion.\n");
+    printf("Enter the amount of gasoline consumed (in Liters): ");
+    scanf("%lf", &liters);
+
+    double footprint = liters * GASOLINE_FACTOR;
+    printf("Result: Estimated Car Footprint is %.2f kg CO2e\n", footprint);
+    printf("Source: US EPA Greenhouse Gas Emissions Factors Hub.\n");
+}
