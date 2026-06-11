@@ -66,3 +66,10 @@ void bike(void) {
     printf("Result: Estimated Bicycle Footprint is %.2f kg CO2e\n", footprint);
     printf("Source: European Cyclists' Federation (ECF) Lifecycle Study.\n");
 }
+
+/*the code starts off by defining 3 functions.
+The main function then starts with an array whose elements are the funcion names.
+Th rest of the main function deals with a do while loop that checks to see if a valid input is read.
+Each input corelates to a differnet carbon emission caluculator (function).
+The users choice decides whoch calculator is called upon.
+Some very simple calculation are then carried out and the output is displayes along with the soirce of that formula.*/
