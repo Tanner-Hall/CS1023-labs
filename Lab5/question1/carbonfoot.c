@@ -1,27 +1,31 @@
 #include <stdio.h>
 
+// Function prototypes
 void building(void);
-
 void car(void);
-
 void bike(void);
 
 int main(void) {
-    int x = 0;
-    if (x == 1 || x == 2 || x == 3)
-{
     void (*operations[3])(void) = {building, car, bike};
-    puts("enter 1 for emisssion of a building\n enter 2 for emisssion of a car\n enter 3 for emisssion of a bike\n");
-    scanf("%d", &x);
-    operations[x];
-}
-else{
-    printf("that is an incorrect value plase enter a valid input");
-    scanf("%d", &x);
-}
-}
-void building(void){
-puts("enter the amount of energy ")
+    int x = 0;
 
+    do {
+        printf("=== CARBON FOOTPRINT CALCULATOR ===\n");
+        printf("Enter 1 for emissions of a building\n");
+        printf("Enter 2 for emissions of a car\n");
+        printf("Enter 3 for emissions of a bike\n");
+        printf("Choice: ");
+        
+        scanf("%d", &x);
+
+        if (x == 1 || x == 2 || x == 3) {
+            // Call the function. We do 'x - 1' because menu choice 1 is array index 0.
+            operations[x - 1](); 
+        } else {
+            printf("\n[Error] That is an incorrect value. Please enter a valid input.\n");
+            printf("--------------------------------------------------\n\n");
+        }
+    } while (x < 1 || x > 3); // Repeat if the input is out of bounds
 
 }
+
