@@ -10,13 +10,15 @@ void insert(struct node **head, int data);
 void printLinkList(struct node *head);
 
 int main(void){
-
+    puts("how many integers would you like to add to the list?");
+    int size =0;
+    int value = 0;
+    scanf("%d", &size);
     struct node *head = NULL;
-    int a[5] = {1,3,2,5,4};
-
-    for (size_t i = 0; i < 5; i++) {
-        // if we don't send the address of head, we will be passing the value of head which is NULL and we won't be able to modify the head pointer in the insert function
-        insert(&head, a[i]);
+    for (int i = 0; i < size; i++) {
+        printf("enter value number %d:\n", i);
+        scanf("%d", &value);
+        insert(&head, value);
         printLinkList(head);
     }
 
