@@ -2,28 +2,27 @@
 #include <stdlib.h>
 
 struct node {
-    int data;
+    double data;
     struct node *next;
 };
 
-void insert(struct node **head, int data);
+void insert(struct node **head, double data);
 void printLinkList(struct node *head);
 
 int main(void){
     struct node *head = NULL;
-    int a[5] = {1,3,2,5,4};
-
-
-    for (size_t i = 0; i < 5; i++) {
-        // if we don't send the address of head, we will be passing the value of head which is NULL and we won't be able to modify the head pointer in the insert function
-        insert(&head, a[i]);
+    double input = 0;
+    while (input >= 0) {
+        puts("enter score you wish to be stored, negative number to end");
+        scanf("%f", &input);
+        insert(&head, input);
         printLinkList(head);
     }
 
     printLinkList(head);
 }
 
-void insert(struct node **head, int data){
+void insert(struct node **head, double data){
     // first we need to allocate memory for the new node
     // because we need to need to first create the container
     struct node *newNode = malloc(sizeof(struct node));
@@ -36,21 +35,21 @@ void insert(struct node **head, int data){
         // then we need to create two pointters to traverse the linked list
         struct node *prevNode = NULL;
         struct node *currentNode = *head;
-        printf("Inserting %d into the linked list...\n", data);
+        printf("Inserting %f into the linked list...\n", data);
 
         while (currentNode !=NULL && currentNode->data < newNode->data){
             prevNode = currentNode;
             currentNode = currentNode->next;
             // printing the current node and prev node
             if (prevNode != NULL) {
-                printf("Current node: %d, Previous node: %d\n", currentNode != NULL ? currentNode->data : -1, prevNode->data);
+                printf("Current node: %f, Previous node: %f\n", currentNode != NULL ? currentNode->data : -1, prevNode->data);
             } else {
-                printf("Current node: %d, Previous node: NULL\n", currentNode != NULL ? currentNode->data : -1);
+                printf("Current node: %f, Previous node: NULL\n", currentNode != NULL ? currentNode->data : -1);
             }
         }
         // just in case if we are inserting the first node at the begining of the linked list
         if (prevNode == NULL) {
-            printf("Inserting %d at the beginning of the linked list.\n", data);
+            printf("Inserting %f at the beginning of the linked list.\n", data);
             newNode->next = *head;
             *head = newNode;
         } else {
@@ -59,7 +58,7 @@ void insert(struct node **head, int data){
         }
     }
     else {
-        printf("Memory allocation failed for new node with data: %d\n", data);
+        printf("Memory allocation failed for new node with data: %f\n", data);
     }
 }
 
@@ -67,7 +66,7 @@ void printLinkList(struct node *head){
     struct node *currentNode = head;
 
     while (currentNode != NULL) {
-        printf("%d ", currentNode->data);
+        printf("%f ", currentNode->data);
         currentNode = currentNode->next;
     }
     printf("\n");
