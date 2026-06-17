@@ -12,13 +12,19 @@ void printLinkList(struct node *head);
 int main(void){
     struct node *head = NULL;
     double input = 0;
-    while (input >= 0) {
+while (1) {
         puts("enter score you wish to be stored, negative number to end");
-        scanf("%f", &input);
+        if (scanf("%lf", &input) != 1) { 
+            break; 
+        }
+        
+        if (input < 0) {
+            break; 
+        }
+
         insert(&head, input);
         printLinkList(head);
     }
-
     printLinkList(head);
 }
 
