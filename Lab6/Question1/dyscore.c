@@ -71,10 +71,32 @@ void insert(struct node **head, double data){
 void printLinkList(struct node *head){
     struct node *currentNode = head;
 
+    if (head == NULL) {
+        printf("\n");
+        return;
+    }
+
+    double min = head->data;
+    double max = head->data; 
+    double sum = 0;
+    int count = 0;
+
     while (currentNode != NULL) {
         printf("%f ", currentNode->data);
+        
+        sum += currentNode->data;
+        count++;
+
+        if (currentNode->next == NULL) {
+            max = currentNode->data;
+        }
+
         currentNode = currentNode->next;
     }
     printf("\n");
+
+    double average = sum / count;
+    printf("Min: %f, Max: %f, Avg: %f\n", min, max, average);
+
 }
 
