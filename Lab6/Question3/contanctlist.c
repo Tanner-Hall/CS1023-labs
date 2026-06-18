@@ -18,6 +18,103 @@ void deleteByNumber(struct contact **head, char targetNumber[]);
 int countContacts(struct contact *head);
 void freeList(struct contact *head);
 
+int main(void) {
+    struct contact *head = NULL;
+    int choice = 0;
+    char nameBuffer[50];
+    char numberBuffer[20];
+
+    while (1) {
+        printf("\n Contact list options \n");
+        printf("1. Add a new contact\n");
+        printf("2. Display all contacts\n");
+        printf("3. Search for a contact by name\n");
+        printf("4. Search for a contact by phone number\n");
+        printf("5. Update the phone number for an existing contact\n");
+        printf("6. Delete a contact by name\n");
+        printf("7. Delete a contact by phone number\n");
+        printf("8. Count how many contacts are stored\n");
+        printf("9. Exit\n");
+        printf("Enter your choice (1-9): ");
+        
+        if (scanf("%d", &choice) != 1) {
+            printf("Invalid input. Exiting.\n");
+            break;
+        }
+        getchar(); 
+
+        if (choice == 9) {
+            break;
+        }
+
+        switch (choice) {
+            case 1:
+                printf("Enter name: ");
+                fgets(nameBuffer, sizeof(nameBuffer), stdin);
+                nameBuffer[strcspn(nameBuffer, "\n")] = 0; 
+                
+                printf("Enter phone number: ");
+                fgets(numberBuffer, sizeof(numberBuffer), stdin);
+                numberBuffer[strcspn(numberBuffer, "\n")] = 0;
+                
+                addContact(&head, nameBuffer, numberBuffer);
+                break;
+
+            case 2:
+                displayContacts(head);
+                break;
+
+            case 3:
+                printf("Enter name to search: ");
+                fgets(nameBuffer, sizeof(nameBuffer), stdin);
+                nameBuffer[strcspn(nameBuffer, "\n")] = 0;
+                searchByName(head, nameBuffer);
+                break;
+
+            case 4:
+                printf("Enter number to search: ");
+                fgets(numberBuffer, sizeof(numberBuffer), stdin);
+                numberBuffer[strcspn(numberBuffer, "\n")] = 0;
+                searchByNumber(head, numberBuffer);
+                break;
+
+            case 5:
+                printf("Enter name of the contact to update: ");
+                fgets(nameBuffer, sizeof(nameBuffer), stdin);
+                nameBuffer[strcspn(nameBuffer, "\n")] = 0;
+                
+                printf("Enter new phone number: ");
+                fgets(numberBuffer, sizeof(numberBuffer), stdin);
+                numberBuffer[strcspn(numberBuffer, "\n")] = 0;
+                
+                updateNumber(head, nameBuffer, numberBuffer);
+                break;
+
+            case 6:
+                printf("Enter name to delete: ");
+                fgets(nameBuffer, sizeof(nameBuffer), stdin);
+                nameBuffer[strcspn(nameBuffer, "\n")] = 0;
+                deleteByName(&head, nameBuffer);
+                break;
+
+            case 7:
+                printf("Enter phone number to delete: ");
+                fgets(numberBuffer, sizeof(numberBuffer), stdin);
+                numberBuffer[strcspn(numberBuffer, "\n")] = 0;
+                deleteByNumber(&head, numberBuffer);
+                break;
+
+            case 8:
+                printf("Total contacts stored: %d\n", countContacts(head));
+                break;
+
+            default:
+                printf("Invalid choice. Please select a valid option.\n");
+        }
+    }
+    freeList(head);
+    return 0;
+}
 
 void addContact(struct contact **head, char name[], char number[]) {
     struct contact *newContact = malloc(sizeof(struct contact));
