@@ -7,7 +7,7 @@ struct node {
 };
 
 void insert(struct node **head, int data);
-void printLinkList(struct node *head);
+void printLinkList(struct node *head, int target);
 
 int main(void){
     puts("how many integers would you like to add to the list?");
@@ -16,13 +16,15 @@ int main(void){
     scanf("%d", &size);
     struct node *head = NULL;
     for (int i = 0; i < size; i++) {
-        printf("enter value number %d:\n", i);
+        printf("enter value number %d:\n", i+1);
         scanf("%d", &value);
         insert(&head, value);
-        printLinkList(head);
     }
+    int searchTarget = 0;
+    printf("Enter one value to search for: ");
+    scanf("%d", &searchTarget);
 
-    printLinkList(head);
+    printLinkList(head, searchTarget);
 }
 
 void insert(struct node **head, int data){
@@ -65,12 +67,41 @@ void insert(struct node **head, int data){
     }
 }
 
-void printLinkList(struct node *head){
+void printLinkList(struct node *head, int target){
     struct node *currentNode = head;
+
+    if (head == NULL) {
+        printf("\n");
+        return;
+    }
+
+    int sum = 0;
+    int count = 0;
+    int found = 0;
 
     while (currentNode != NULL) {
         printf("%d ", currentNode->data);
+        sum += currentNode->data;
+        count += 1;
         currentNode = currentNode->next;
+    }
+    currentNode = head;
+    while (currentNode != NULL) {
+        if (currentNode->data == target) {
+            found = 1;
+            break; 
+        }
+        if (currentNode->data > target) {
+            break;
+        }
+        currentNode = currentNode->next;
+    }
+    
+    printf("amount of nodes: %d, sum of numbers: %d\n", count, sum);
+    if (found) {
+    printf("Value %d was found in the linked list.\n", target);
+    } else {
+    printf("Value %d was NOT found in the linked list.\n", target);
     }
     printf("\n");
 }
