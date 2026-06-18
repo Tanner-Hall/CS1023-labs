@@ -94,3 +94,69 @@ head = head->next;
 printf("Contact '%s' not found. Update failed.\n", targetName);
 }
 
+void deleteByName(struct contact **head, char targetName[]) {
+struct contact *prevNode = NULL;
+struct contact *currentNode = *head;
+
+while (currentNode != NULL && strcmp(currentNode->name, targetName) != 0) {
+prevNode = currentNode;
+currentNode = currentNode->next;
+}
+
+if (currentNode == NULL) {
+printf("Contact '%s' not found. Nothing to delete.\n", targetName);
+return;
+}
+
+if (prevNode == NULL) {
+*head = currentNode->next;
+} else {
+prevNode->next = currentNode->next;
+}
+
+free(currentNode);
+printf("Contact '%s' deleted successfully.\n", targetName);
+}
+
+void deleteByNumber(struct contact **head, char targetNumber[]) {
+struct contact *prevNode = NULL;
+struct contact *currentNode = *head;
+
+while (currentNode != NULL && strcmp(currentNode->number, targetNumber) != 0) {
+prevNode = currentNode;
+currentNode = currentNode->next;
+}
+
+if (currentNode == NULL) {
+printf("Contact with phone number '%s' not found. Nothing to delete.\n", targetNumber);
+return;
+}
+
+if (prevNode == NULL) {
+*head = currentNode->next;
+} else {
+prevNode->next = currentNode->next;
+}
+
+printf("Contact '%s' deleted successfully.\n", currentNode->name);
+free(currentNode);
+}
+
+int countContacts(struct contact *head) {
+int count = 0;
+while (head != NULL) {
+count++;
+head = head->next;
+}
+return count;
+}
+
+void freeList(struct contact *head) {
+struct contact *temp;
+while (head != NULL) {
+temp = head;
+head = head->next;
+free(temp);
+}
+printf("All resources cleared. Goodbye!\n");
+}
