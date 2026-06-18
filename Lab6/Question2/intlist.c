@@ -5,7 +5,7 @@ struct node {
     int data;
     struct node *next;
 };
-
+void freeLinkList(struct node *head);
 void insert(struct node **head, int data);
 void printLinkList(struct node *head, int target);
 
@@ -106,3 +106,12 @@ void printLinkList(struct node *head, int target){
     printf("\n");
 }
 
+void freeLinkList(struct node *head) {
+    struct node *temp;
+    while (head != NULL) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+    printf("Memory successfully cleared.\n");
+}
