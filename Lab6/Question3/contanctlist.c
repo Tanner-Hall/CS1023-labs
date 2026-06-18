@@ -8,7 +8,6 @@ struct contact {
     struct contact *next;
 };
 
-// Function Prototypes
 void addContact(struct contact **head, char name[], char number[]);
 void displayContacts(struct contact *head);
 void searchByName(struct contact *head, char targetName[]);
@@ -48,3 +47,50 @@ void addContact(struct contact **head, char name[], char number[]) {
     }
     printf("Contact added successfully!\n");
 }
+
+void displayContacts(struct contact *head) {
+    if (head == NULL) {
+        printf("Address book is empty.\n");
+        return;
+    }
+    printf("\n--- Contact List ---\n");
+    while (head != NULL) {
+        printf("Name: %-20s | Phone: %s\n", head->name, head->number);
+        head = head->next;
+    }
+}
+
+void searchByName(struct contact *head, char targetName[]) {
+    while (head != NULL) {
+        if (strcmp(head->name, targetName) == 0) {
+            printf("Found! Name: %s, Phone: %s\n", head->name, head->number);
+            return;
+        }
+        head = head->next;
+    }
+    printf("Contact with name '%s' not found.\n", targetName);
+}
+
+void searchByNumber(struct contact *head, char targetNumber[]) {
+while (head != NULL) {
+if (strcmp(head->number, targetNumber) == 0) {
+printf("Found! Name: %s, Phone: %s\n", head->name, head->number);
+return;
+}
+head = head->next;
+}
+printf("Contact with phone number '%s' not found.\n", targetNumber);
+}
+
+void updateNumber(struct contact *head, char targetName[], char newNumber[]) {
+while (head != NULL) {
+if (strcmp(head->name, targetName) == 0) {
+strcpy(head->number, newNumber);
+printf("Phone number updated successfully for %s.\n", targetName);
+return;
+}
+head = head->next;
+}
+printf("Contact '%s' not found. Update failed.\n", targetName);
+}
+
