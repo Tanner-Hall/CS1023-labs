@@ -257,3 +257,5 @@ free(temp);
 }
 printf("All resources cleared. Goodbye!\n");
 }
+
+/*The main function is comprised of a while loop that shows th options that the code can complete and a switch case that excecutes each indivtual funcion.The function "addcontact" is interesting because we wish to add the name of the person and their number nto the linklist and we wish for it to be in order. But we are unable to simply compare strings in C so we use strcmp to sompare which string comes before th other alphabetically. It then adds each node accordingly in the same way as the previous questions of this lab. Search by name also uses the compare function to see if the inutted name by the user matches any names in the nodes. Delete by name does the same thing to find the proper conatact to delete. Searching for a contct by number uses the sme hing because we treat the contacts number as a string.*/
