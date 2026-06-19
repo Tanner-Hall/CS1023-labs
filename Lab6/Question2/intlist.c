@@ -115,3 +115,5 @@ void freeLinkList(struct node *head) {
     }
     printf("Memory successfully cleared.\n");
 }
+
+/*This question is a little differnet from the last since I initally ask the usr how many inputs they wish o enter, I then implement a for loop that loops for as many times as the user specified. ach loop asks te user to enter a value and calls a function that takes hat value s an input. The linklist itself is implemented the exact same as in problem one with the smallest integer being at the front anf the largest being at the back of the linklist. The print function excecutes finding the sum of the nodes and how many nodes there are in the same way as the last code. What is new is that there is also a whle loop that searches for an input given by the user. It does this by going through each node and checking if the data in that node is equal to the entered value. Finally here is a function called freelinklist that frees the list from the first node to the last. */
